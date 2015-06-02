@@ -8,7 +8,13 @@ class Dashboard extends Admin_Controller {
 		echo "Dashboard";
 	}
 
-
+	public function pdf()
+	{
+		$mpdf = new mPDF();
+		$mpdf->WriteHTML('<p>Hallo World</p>');
+		$mpdf->Output();
+		exit;
+	}
 }
 
 /* End of file Dashboard.php */

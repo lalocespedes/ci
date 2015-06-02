@@ -1,0 +1,12 @@
+{
+    "name": "lalocespedes/ci",
+    "authors": [
+        {
+            "name": "lalocespedes",
+            "email": "lalocespedes@gmail.com"
+        }
+    ],
+    "require": {
+        "mpdf/mpdf": "^6.0"
+    }
+}
