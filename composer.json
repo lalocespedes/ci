@@ -1,4 +1,9 @@
 {
+    "autoload":{
+        "psr-4":{
+            "lalocespedes\\": "app//lalocespedes"
+        }
+    },
     "name": "lalocespedes/ci",
     "authors": [
         {

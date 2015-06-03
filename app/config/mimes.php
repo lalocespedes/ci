@@ -90,7 +90,7 @@ return array(
 	'log'	=>	array('text/plain', 'text/x-log'),
 	'rtx'	=>	'text/richtext',
 	'rtf'	=>	'text/rtf',
-	'xml'	=>	array('application/xml', 'text/xml', 'text/plain'),
+	//'xml'	=>	array('application/xml', 'text/xml', 'text/plain'),
 	'xsl'	=>	array('application/xml', 'text/xsl', 'text/xml'),
 	'mpeg'	=>	'video/mpeg',
 	'mpg'	=>	'video/mpeg',
@@ -152,5 +152,8 @@ return array(
 	'wma'	=>	array('audio/x-ms-wma', 'video/x-ms-asf'),
 	'jar'	=>	array('application/java-archive', 'application/x-java-application', 'application/x-jar', 'application/x-compressed'),
 	'svg'	=>	array('image/svg+xml', 'application/xml', 'text/xml'),
-	'vcf'	=>	'text/x-vcard'
+	'vcf'	=>	'text/x-vcard',
+	'xml'   =>  array('text/xml','application/xml','application/octet-stream'),
+	'cer'	=>	array('application/x-x509-ca-cert', 'application/octet-stream'),
+	'key'	=>	array('text/pain', 'application/octet-stream'),
 );

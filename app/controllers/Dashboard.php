@@ -15,6 +15,16 @@ class Dashboard extends Admin_Controller {
 		$mpdf->Output();
 		exit;
 	}
+
+	public function parser()
+	{
+		$file = '/home/ci/xml/234.xml';
+
+		$cfdi = new lalocespedes\CfdiMx\Parser($file);
+
+		var_dump($cfdi->jsonSerialize());
+
+	}
 }
 
 /* End of file Dashboard.php */
