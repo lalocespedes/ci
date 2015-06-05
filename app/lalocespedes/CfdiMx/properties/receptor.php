@@ -15,20 +15,22 @@ class receptor
 
         $data = array(
             '@atributos' => array(
-                'nombre' => (string) $cfdi->Receptor->attributes()->nombre,
-                'rfc'    => (string) $cfdi->Receptor->attributes()->rfc
+                'nombre' => $cfdi->Receptor->attributes()->nombre,
+                'rfc'    => $cfdi->Receptor->attributes()->rfc
                 )
             );
 
         if (isset($cfdi->Receptor->Domicilio)) {
             $data['DomicilioFiscal']['@atributos'] = array(
-                'calle'        => (string) $cfdi->Receptor->Domicilio->attributes()->calle,
-                'codigoPostal' => (string) $cfdi->Receptor->Domicilio->attributes()->codigoPostal,
-                'colonia'      => (string) $cfdi->Receptor->Domicilio->attributes()->colonia,
-                'estado'       => (string) $cfdi->Receptor->Domicilio->attributes()->estado,
-                'municipio'    => (string) $cfdi->Receptor->Domicilio->attributes()->municipio,
-                'noExterior'   => (string) $cfdi->Receptor->Domicilio->attributes()->noExterior,
-                'pais'         => (string) $cfdi->Receptor->Domicilio->attributes()->pais
+                'calle'        => $cfdi->Receptor->Domicilio->attributes()->calle,
+                'codigoPostal' => $cfdi->Receptor->Domicilio->attributes()->codigoPostal,
+                'colonia'      => $cfdi->Receptor->Domicilio->attributes()->colonia,
+                'localidad'      => $cfdi->Receptor->Domicilio->attributes()->localidad,
+                'estado'       => $cfdi->Receptor->Domicilio->attributes()->estado,
+                'municipio'    => $cfdi->Receptor->Domicilio->attributes()->municipio,
+                'noExterior'   => $cfdi->Receptor->Domicilio->attributes()->noExterior,
+                'noInterior'   => $cfdi->Receptor->Domicilio->attributes()->noInterior,
+                'pais'         => $cfdi->Receptor->Domicilio->attributes()->pais
                 );
         }
 

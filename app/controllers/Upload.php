@@ -19,13 +19,44 @@ class Upload extends Admin_Controller {
 			try {
 
 				$filename = $_FILES['userfile']['name'];
+				$xml = $_FILES['userfile']['tmp_name'];
 
-				//validar que el xml no haya sido subido previamente confrontandolo con el uuid
+				//parsear el xml
+				$parser = new lalocespedes\CfdiMx\Parser($xml);
+				$cfdi = $parser->jsonSerialize();
 
-				//validar que el xml sea para la empresa
+				$sat = new lalocespedes\CfdiMx\Sat($xml);
+        		$result = $sat->valida_cfdi($cfdi['Comprobante']['@atributos']['total'], $cfdi['Comprobante']['Emisor']['@atributos']['rfc'], $cfdi['Comprobante']['Receptor']['@atributos']['rfc'], $cfdi['Comprobante']['Complemento']['TimbreFiscalDigital']['@atributos']['UUID']);
 
-				//validar que el xml se encuentre el sat
+        		if($result === 'N') {
+					
+					$this->session->set_flashdata('error', 'Error: xml no registrado en el SAT, si el documento tiene menos de 72 hrs favor de intentarlo mas tarde');
+					redirect('store');
 
+				}
+
+				$this->load->model('upload/mdl_upload');
+
+				$validate_rfc = $this->mdl_upload->validation_rfc($cfdi);
+
+				if(!$validate_rfc) {
+					
+					$this->session->set_flashdata('error', 'El documento no corresponde para ningun rfc registrado, el rfc en el xml es '. $cfdi['Comprobante']['Receptor']['@atributos']['rfc']);
+					redirect('store');
+
+				}
+
+				$xml_uuid = $cfdi['Comprobante']['Complemento']['TimbreFiscalDigital']['@atributos']['UUID'];
+
+				$validate_uuid = $this->mdl_upload->validation_uuid($xml_uuid);
+
+				if($validate_uuid) {
+
+					$this->session->set_flashdata('error', 'Docuemto previamente ya capturado');
+					redirect('store');
+
+				}
+				
 				//validar los campos del xml
 
 				//validar extrutura del cfdi32
@@ -35,9 +66,10 @@ class Upload extends Admin_Controller {
 
 				$this->store($filename);
 
-				$this->save($filename);
+				$this->save($filename, $xml_uuid);
 
-				die('xml guardado');
+				$this->session->set_flashdata('success', 'Documento guardado.');
+				redirect('store');
 
 	    		//$cfdi = new lalocespedes\CfdiMx\Parser($xml);
 
@@ -61,16 +93,17 @@ class Upload extends Admin_Controller {
 
 		if (!$this->upload->do_upload())
 		{
-			$this->session->set_flashdata('errorxml', $this->upload->display_errors());
+			$this->session->set_flashdata('error', $this->upload->display_errors());
 			redirect('upload');
 		}
 
 	}
 
-	public function save($filename)
+	public function save($filename, $xml_uuid)
 	{
 		$data = [
-			'xml_name' => $filename
+			'xml_name'  => $filename,
+			'xml_uuid'	=> $xml_uuid
 		];
 
 		$this->db->insert('sdm_xml', $data);

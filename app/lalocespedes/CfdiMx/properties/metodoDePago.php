@@ -15,7 +15,7 @@ class metodoDePago
         switch ($version) {
             case 3:
             case 3.2:
-                return (string) $xml['metodoDePago'];
+                return $xml['metodoDePago'];
                 break;
             default:
                 throw new Exception('Unkown document version ' . $version);

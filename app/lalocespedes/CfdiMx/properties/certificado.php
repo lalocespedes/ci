@@ -15,7 +15,7 @@ class certificado
         switch ($version) {
             case 3:
             case 3.2:
-                return (string) $xml['certificado'];
+                return $xml['certificado'];
                 break;
             default:
                 throw new Exception('Unkown document version ' . $version);

@@ -15,7 +15,7 @@ class condicionesDePago
         switch ($version) {
             case 3:
             case 3.2:
-                return (string) $xml['condicionesDePago'];
+                return $xml['condicionesDePago'];
                 break;
             default:
                 throw new Exception('Unkown document version ' . $version);

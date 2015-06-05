@@ -17,7 +17,7 @@ class fecha
         switch ($version) {
             case 3:
             case 3.2:
-                return (string) $xml['fecha'];
+                return $xml['fecha'];
                 break;
             default:
                 throw new Exception('Unkown document version ' . $version);

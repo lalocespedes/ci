@@ -55,3 +55,10 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login']	= 'auth/login';
 $route['logout']	= 'auth/logout';
+
+
+//$route['entity/:num'] = 'entity/update';
+$route['entity/(:num)'] = 'entity/show/$1';
+//$route['entity/save:num'] = 'entity/update';
+
+

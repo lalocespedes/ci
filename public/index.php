@@ -283,6 +283,15 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder);
 
+	// define path xml folder
+	define('XML_FOLDER', realpath('../xml'));
+
+	//CREATE FOLDER IF DOSENT EXISTS
+
+	if(!file_exists(FCPATH.'../xml')){
+        mkdir(FCPATH.'../xml', 0777, TRUE);
+    }
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE

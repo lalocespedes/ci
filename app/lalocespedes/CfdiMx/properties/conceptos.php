@@ -17,16 +17,17 @@ class conceptos
 
         foreach ($cfdi->Conceptos->children($namespace['cfdi']) as $key => $value) {
             $data['Concepto']['@atributos'][] = array(
-                'cantidad'      => (float) $value->attributes()->cantidad,
-                'descripcion'   => (string) $value->attributes()->descripcion,
-                'importe'       => (float) $value->attributes()->importe,
-                'unidad'        => (string) $value->attributes()->unidad,
-                'valorUnitario' => (float) $value->attributes()->valorUnitario,
+                'cantidad'          => $value->attributes()->cantidad,
+                'noIdentificacion'  => $value->attributes()->noIdentificacion,
+                'descripcion'       => $value->attributes()->descripcion,
+                'importe'           => $value->attributes()->importe,
+                'unidad'            => $value->attributes()->unidad,
+                'valorUnitario'     => $value->attributes()->valorUnitario,
                 );
 
             if (isset($value->CuentaPredial)) {
                 $data['Concepto']['@atributos'][count($data['Concepto']['@atributos'])-1]['CuentaPredial']['@atributos'] = array(
-                    'numero' => (string) $value->CuentaPredial->attributes()->numero
+                    'numero' => $value->CuentaPredial->attributes()->numero
                     );
             }
         }

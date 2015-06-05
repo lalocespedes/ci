@@ -1,8 +1,5 @@
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+<?php $this->load->view('templates/header.php'); ?>
+
 	<br>
 	<br>
 	<form action="/upload/up" method="post" enctype="multipart/form-data">

@@ -15,7 +15,7 @@ class folio
         switch ($version) {
             case 3:
             case 3.2:
-                return (string) $xml['folio'];
+                return $xml['folio'];
                 break;
             default:
                 throw new Exception('Unkown document version ' . $version);

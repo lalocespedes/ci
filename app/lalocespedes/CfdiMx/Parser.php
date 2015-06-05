@@ -73,6 +73,16 @@ class Parser implements JsonSerializable
 
         // $qr = base64_encode($qrCode->get());
 
+            $sat = new Sat;
+            $qr = $sat->qr_sat($this->_mapping->total, $this->_mapping->emisor['@atributos']['rfc'], $this->_mapping->receptor['@atributos']['rfc'], $this->_mapping->complemento['TimbreFiscalDigital']['@atributos']['UUID']);
+
+            $cadenaOriginalTFD = "||1.0|".$this->_mapping->complemento['TimbreFiscalDigital']['@atributos']['UUID']."|".$this->_mapping->fecha."|".$this->_mapping->complemento['TimbreFiscalDigital']['@atributos']['selloCFD']."|".$this->_mapping->complemento['TimbreFiscalDigital']['@atributos']['noCertificadoSAT'].'||';
+            
+            $numletras = new NumberToLetterConverter;
+            $numletras = $numletras->to_word($this->_mapping->total, $this->_mapping->moneda);
+
+            $importe_letra = $numletras;
+
             return array(
             'Comprobante' => array(
                 '@atributos' => array(
@@ -101,7 +111,9 @@ class Parser implements JsonSerializable
                 'Conceptos'   => $this->_mapping->conceptos,
                 'Impuestos'   => $this->_mapping->impuestos,
                 'Complemento' => $this->_mapping->complemento,
-                //'codigobarra' => $qr
+                'cadenaOriginalTFD' => $cadenaOriginalTFD,
+                'codigobarra' => $qr,
+                'importe_letra' => $importe_letra
                 )
             );
         //}

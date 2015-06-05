@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Migration_Install_xml extends CI_Migration {
+class Migration_Install_entity extends CI_Migration {
 
 	public function up() {
 
@@ -11,25 +11,25 @@ class Migration_Install_xml extends CI_Migration {
 				'unsigned' => TRUE,
 				'auto_increment' => TRUE
 			),
-			'xml_name' => array(
+			'entity_name' => array(
 				'type' => 'VARCHAR',
-				'constraint' => '100',
+				'constraint' => '255',
 			),
-			'xml_uuid' => array(
+			'entity_rfc' => array(
 				'type' => 'VARCHAR',
-				'constraint' => '36',
+				'constraint' => '13',
 			)
 		));
 
 		$this->dbforge->add_key('id', TRUE);
 		$this->dbforge->add_field("created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP");
 		$this->dbforge->add_field("updated_at TIMESTAMP NULL");
-		$this->dbforge->create_table('sdm_xml');
+		$this->dbforge->create_table('sdm_entity');
 	}
 
 	public function down() {
 		
-		$this->dbforge->drop_table('sdm_xml');
+		$this->dbforge->drop_table('sdm_entity');
 	}
 
 }

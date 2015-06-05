@@ -5,7 +5,7 @@ class Dashboard extends Admin_Controller {
 
 	public function index()
 	{
-		echo "Dashboard";
+		$this->load->view('dashboard/index.php');
 	}
 
 	public function pdf()

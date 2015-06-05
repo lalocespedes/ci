@@ -12,6 +12,8 @@
         }
     ],
     "require": {
-        "mpdf/mpdf": "^6.0"
+        "mpdf/mpdf": "6.*",
+        "deviservi/nusoap": "1.*",
+        "endroid/qrcode": "1.3.*"
     }
 }

@@ -17,7 +17,7 @@ class sello
         switch ($version) {
             case 3:
             case 3.2:
-                return (string) $xml['sello'];
+                return $xml['sello'];
                 break;
             default:
                 throw new Exception('Unkown document version ' . $version);

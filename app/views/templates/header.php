@@ -7,12 +7,5 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	
-	<?php foreach ($xmls as $xml): ?>
-
-		<?php echo $xml->id; ?> / <?php echo $xml->xml_name; ?> <br>
-		
-	<?php endforeach ?>
-
-</body>
-</html>
+<?php $this->load->view('templates/partials/nav.php'); ?>
+<?php $this->load->view('templates/partials/messages.php'); ?>

@@ -15,7 +15,7 @@ class subTotal
         switch ($version) {
             case 3:
             case 3.2:
-                return (float) $xml['subTotal'];
+                return $xml['subTotal'];
                 break;
             default:
                 throw new Exception('Unkown document version ' . $version);

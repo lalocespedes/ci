@@ -34,25 +34,25 @@ class complemento
 
             if (isset($imp->ImpuestosLocales)) {
                 $data['ImpuestosLocales']['@atributos'] = array(
-                    'TotaldeRetenciones' => (float) $imp->ImpuestosLocales->attributes()->TotaldeRetenciones,
-                    'TotaldeTraslados'   => (float) $imp->ImpuestosLocales->attributes()->TotaldeTraslados,
-                    'Version'            => (float) $imp->ImpuestosLocales->attributes()->Version,
+                    'TotaldeRetenciones' => $imp->ImpuestosLocales->attributes()->TotaldeRetenciones,
+                    'TotaldeTraslados'   => $imp->ImpuestosLocales->attributes()->TotaldeTraslados,
+                    'Version'            => $imp->ImpuestosLocales->attributes()->Version,
                     );
             }
 
             if (isset($imp->ImpuestosLocales->RetencionesLocales)) {
                 $data['ImpuestosLocales']['RetencionesLocales']['@atributos'] = array(
-                    'ImpLocRetenido'  => (string) $imp->ImpuestosLocales->RetencionesLocales->attributes()->ImpLocRetenido,
-                    'TasadeRetencion' => (float) $imp->ImpuestosLocales->RetencionesLocales->attributes()->TasadeRetencion,
-                    'Importe'         => (float) $imp->ImpuestosLocales->RetencionesLocales->attributes()->Importe,
+                    'ImpLocRetenido'  => $imp->ImpuestosLocales->RetencionesLocales->attributes()->ImpLocRetenido,
+                    'TasadeRetencion' => $imp->ImpuestosLocales->RetencionesLocales->attributes()->TasadeRetencion,
+                    'Importe'         => $imp->ImpuestosLocales->RetencionesLocales->attributes()->Importe,
                     );
             }
 
             if (isset($imp->ImpuestosLocales->TrasladosLocales)) {
                 $data['ImpuestosLocales']['TrasladosLocales']['@atributos'] = array(
-                    'ImpLocTrasladado' => (string) $imp->ImpuestosLocales->TrasladosLocales->attributes()->ImpLocTrasladado,
-                    'TasadeTraslado'   => (float) $imp->ImpuestosLocales->TrasladosLocales->attributes()->TasadeTraslado,
-                    'Importe'          => (float) $imp->ImpuestosLocales->TrasladosLocales->attributes()->Importe,
+                    'ImpLocTrasladado' => $imp->ImpuestosLocales->TrasladosLocales->attributes()->ImpLocTrasladado,
+                    'TasadeTraslado'   => $imp->ImpuestosLocales->TrasladosLocales->attributes()->TasadeTraslado,
+                    'Importe'          => $imp->ImpuestosLocales->TrasladosLocales->attributes()->Importe,
                     );
             }
         }
@@ -66,45 +66,45 @@ class complemento
             // Atributos
             if (isset($nmd->Nomina)) {
                 $data['Nomina']['@atributos'] = array(
-                    'Antiguedad'             => (string) $nmd->Nomina->attributes()->Antiguedad,
-                    'Banco'                  => (string) $nmd->Nomina->attributes()->Banco,
-                    'CURP'                   => (string) $nmd->Nomina->attributes()->CURP,
-                    'CLABE'                  => (string) $nmd->Nomina->attributes()->CLABE,
-                    'Departamento'           => (string) $nmd->Nomina->attributes()->Departamento,
-                    'FechaPago'              => (string) $nmd->Nomina->attributes()->FechaPago,
-                    'FechaInicialPago'       => (string) $nmd->Nomina->attributes()->FechaInicialPago,
-                    'FechaFinalPago'         => (string) $nmd->Nomina->attributes()->FechaFinalPago,
-                    'FechaInicioRelLaboral'  => (string) $nmd->Nomina->attributes()->FechaInicioRelLaboral,
-                    'NumDiasPagados'         => (string) $nmd->Nomina->attributes()->NumDiasPagados,
-                    'NumEmpleado'            => (string) $nmd->Nomina->attributes()->NumEmpleado,
-                    'NumSeguridadSocial'     => (string) $nmd->Nomina->attributes()->NumSeguridadSocial,
-                    'PeriodicidadPago'       => (string) $nmd->Nomina->attributes()->PeriodicidadPago,
-                    'Puesto'                 => (string) $nmd->Nomina->attributes()->Puesto,
-                    'RegistroPatronal'       => (string) $nmd->Nomina->attributes()->RegistroPatronal,
-                    'RiesgoPuesto'           => (string) $nmd->Nomina->attributes()->RiesgoPuesto,
-                    'SalarioBaseCotApor'     => (string) $nmd->Nomina->attributes()->SalarioBaseCotApor,
-                    'SalarioDiarioIntegrado' => (string) $nmd->Nomina->attributes()->SalarioDiarioIntegrado,
-                    'TipoContrato'           => (string) $nmd->Nomina->attributes()->TipoContrato,
-                    'TipoJornada'            => (string) $nmd->Nomina->attributes()->TipoJornada,
-                    'TipoRegimen'            => (string) $nmd->Nomina->attributes()->TipoRegimen,
-                    'Version'                => (float) $nmd->Nomina->attributes()->Version
+                    'Antiguedad'             => $nmd->Nomina->attributes()->Antiguedad,
+                    'Banco'                  => $nmd->Nomina->attributes()->Banco,
+                    'CURP'                   => $nmd->Nomina->attributes()->CURP,
+                    'CLABE'                  => $nmd->Nomina->attributes()->CLABE,
+                    'Departamento'           => $nmd->Nomina->attributes()->Departamento,
+                    'FechaPago'              => $nmd->Nomina->attributes()->FechaPago,
+                    'FechaInicialPago'       => $nmd->Nomina->attributes()->FechaInicialPago,
+                    'FechaFinalPago'         => $nmd->Nomina->attributes()->FechaFinalPago,
+                    'FechaInicioRelLaboral'  => $nmd->Nomina->attributes()->FechaInicioRelLaboral,
+                    'NumDiasPagados'         => $nmd->Nomina->attributes()->NumDiasPagados,
+                    'NumEmpleado'            => $nmd->Nomina->attributes()->NumEmpleado,
+                    'NumSeguridadSocial'     => $nmd->Nomina->attributes()->NumSeguridadSocial,
+                    'PeriodicidadPago'       => $nmd->Nomina->attributes()->PeriodicidadPago,
+                    'Puesto'                 => $nmd->Nomina->attributes()->Puesto,
+                    'RegistroPatronal'       => $nmd->Nomina->attributes()->RegistroPatronal,
+                    'RiesgoPuesto'           => $nmd->Nomina->attributes()->RiesgoPuesto,
+                    'SalarioBaseCotApor'     => $nmd->Nomina->attributes()->SalarioBaseCotApor,
+                    'SalarioDiarioIntegrado' => $nmd->Nomina->attributes()->SalarioDiarioIntegrado,
+                    'TipoContrato'           => $nmd->Nomina->attributes()->TipoContrato,
+                    'TipoJornada'            => $nmd->Nomina->attributes()->TipoJornada,
+                    'TipoRegimen'            => $nmd->Nomina->attributes()->TipoRegimen,
+                    'Version'                => $nmd->Nomina->attributes()->Version
                     );
             }
 
             // Percepciones
             if (isset($nmd->Nomina->Percepciones)) {
                 $data['Nomina']['Percepciones']['@atributos'] = array(
-                    'TotalGravado' => (float) $nmd->Nomina->Percepciones->attributes()->TotalGravado,
-                    'TotalExento'  => (float) $nmd->Nomina->Percepciones->attributes()->TotalExento
+                    'TotalGravado' => $nmd->Nomina->Percepciones->attributes()->TotalGravado,
+                    'TotalExento'  => $nmd->Nomina->Percepciones->attributes()->TotalExento
                     );
 
                 foreach ($nmd->Nomina->Percepciones->children($namespace['nomina']) as $key => $value) {
                     $data['Nomina']['Percepciones']['Percepcion']['@atributos'][] = array(
-                        'TipoPercepcion' => (string) $value->attributes()->TipoPercepcion,
-                        'Clave'          => (string) $value->attributes()->Clave,
-                        'Concepto'       => (string) $value->attributes()->Concepto,
-                        'ImporteGravado' => (float) $value->attributes()->ImporteGravado,
-                        'ImporteExento'  => (float) $value->attributes()->ImporteExento
+                        'TipoPercepcion' => $value->attributes()->TipoPercepcion,
+                        'Clave'          => $value->attributes()->Clave,
+                        'Concepto'       => $value->attributes()->Concepto,
+                        'ImporteGravado' => $value->attributes()->ImporteGravado,
+                        'ImporteExento'  => $value->attributes()->ImporteExento
                         );
                 }
             }
@@ -112,17 +112,17 @@ class complemento
             // Deducciones
             if (isset($nmd->Nomina->Deducciones)) {
                 $data['Nomina']['Deducciones']['@atributos'] = array(
-                    'TotalGravado' => (float) $nmd->Nomina->Deducciones->attributes()->TotalGravado,
-                    'TotalExento'  => (float) $nmd->Nomina->Deducciones->attributes()->TotalExento,
+                    'TotalGravado' => $nmd->Nomina->Deducciones->attributes()->TotalGravado,
+                    'TotalExento'  => $nmd->Nomina->Deducciones->attributes()->TotalExento,
                     );
 
                 foreach ($nmd->Nomina->Deducciones->children($namespace['nomina']) as $key => $value) {
                     $data['Nomina']['Deducciones']['Deduccion']['@atributos'][] = array(
-                        'TipoDeduccion'  => (string) $value->attributes()->TipoDeduccion,
-                        'Clave'          => (string) $value->attributes()->Clave,
-                        'Concepto'       => (string) $value->attributes()->Concepto,
-                        'ImporteGravado' => (float) $value->attributes()->ImporteGravado,
-                        'ImporteExento'  => (float) $value->attributes()->ImporteExento
+                        'TipoDeduccion'  => $value->attributes()->TipoDeduccion,
+                        'Clave'          => $value->attributes()->Clave,
+                        'Concepto'       => $value->attributes()->Concepto,
+                        'ImporteGravado' => $value->attributes()->ImporteGravado,
+                        'ImporteExento'  => $value->attributes()->ImporteExento
                         );
                 }
             }
@@ -131,9 +131,9 @@ class complemento
             if (isset($nmd->Nomina->Incapacidades)) {
                 foreach ($nmd->Nomina->Incapacidades->children($namespace['nomina']) as $key => $value) {
                     $data['Nomina']['Incapacidades']['Incapacidad']['@atributos'][] = array(
-                        'DiasIncapacidad' => (float) $value->attributes()->DiasIncapacidad,
-                        'TipoIncapacidad' => (string) $value->attributes()->TipoIncapacidad,
-                        'Descuento'       => (float) $value->attributes()->Descuento
+                        'DiasIncapacidad' => $value->attributes()->DiasIncapacidad,
+                        'TipoIncapacidad' => $value->attributes()->TipoIncapacidad,
+                        'Descuento'       => $value->attributes()->Descuento
                         );
                 }
             }
@@ -142,10 +142,10 @@ class complemento
             if (isset($nmd->Nomina->HorasExtras)) {
                 foreach ($nmd->Nomina->HorasExtras->children($namespace['nomina']) as $key => $value) {
                     $data['Nomina']['HorasExtras']['@atributos'][] = array(
-                        'Dias'          => (float) $value->attributes()->Dias,
-                        'HorasExtra'    => (float) $value->attributes()->HorasExtra,
-                        'ImportePagado' => (float) $value->attributes()->ImportePagado,
-                        'TipoHoras'     => (string) $value->attributes()->TipoHoras
+                        'Dias'          => $value->attributes()->Dias,
+                        'HorasExtra'    => $value->attributes()->HorasExtra,
+                        'ImportePagado' => $value->attributes()->ImportePagado,
+                        'TipoHoras'     => $value->attributes()->TipoHoras
                         );
                 }
             }
@@ -157,12 +157,12 @@ class complemento
 
             if (isset($tfd->TimbreFiscalDigital)) {
                 $data['TimbreFiscalDigital']['@atributos'] = array(
-                    'FechaTimbrado'    => (string) $tfd->TimbreFiscalDigital->attributes()->FechaTimbrado,
-                    'noCertificadoSAT' => (string) $tfd->TimbreFiscalDigital->attributes()->noCertificadoSAT,
-                    'selloCFD'         => (string) $tfd->TimbreFiscalDigital->attributes()->selloCFD,
-                    'selloSAT'         => (string) $tfd->TimbreFiscalDigital->attributes()->selloSAT,
-                    'UUID'             => (string) $tfd->TimbreFiscalDigital->attributes()->UUID,
-                    'version'          => (float) $tfd->TimbreFiscalDigital->attributes()->version
+                    'FechaTimbrado'    => $tfd->TimbreFiscalDigital->attributes()->FechaTimbrado,
+                    'noCertificadoSAT' => $tfd->TimbreFiscalDigital->attributes()->noCertificadoSAT,
+                    'selloCFD'         => $tfd->TimbreFiscalDigital->attributes()->selloCFD,
+                    'selloSAT'         => $tfd->TimbreFiscalDigital->attributes()->selloSAT,
+                    'UUID'             => $tfd->TimbreFiscalDigital->attributes()->UUID,
+                    'version'          => $tfd->TimbreFiscalDigital->attributes()->version
                     );
             }
         }

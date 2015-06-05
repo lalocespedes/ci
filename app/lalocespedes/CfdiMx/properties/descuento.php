@@ -15,7 +15,7 @@ class descuento
         switch ($version) {
             case 3:
             case 3.2:
-                return (float) $xml['descuento'];
+                return $xml['descuento'];
             default:
                 throw new Exception('Unkown document version ' . $version);
         }

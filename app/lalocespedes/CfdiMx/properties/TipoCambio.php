@@ -15,7 +15,7 @@ class TipoCambio
         switch ($version) {
             case 3:
             case 3.2:
-                return (float) $xml['TipoCambio'];
+                return $xml['TipoCambio'];
                 break;
             default:
                 throw new Exception('Unkown document version ' . $version);
