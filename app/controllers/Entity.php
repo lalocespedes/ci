@@ -10,7 +10,7 @@ class Entity extends Admin_Controller {
 
 		if (!$this->ion_auth->is_admin())
 		{
-			$this->session->set_flashdata('message', 'Acceso denegado, consulta con tu administrador');
+			$this->session->set_flashdata('fail', 'Acceso denegado, consulta con tu administrador');
 			redirect('dashboard');
 		}
 	}

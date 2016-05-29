@@ -12,3 +12,5 @@
 	</div>
 	<input type='submit'>
 </form>
+
+<?php $this->load->view('templates/footer.php'); ?>

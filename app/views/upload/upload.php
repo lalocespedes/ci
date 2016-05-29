@@ -10,3 +10,6 @@
 	<br>
 </body>
 </html>
+
+
+<?php $this->load->view('templates/footer.php'); ?>

@@ -11,3 +11,5 @@
 
 <br>
 <a href="<?php echo base_url('entity/update/'.$data->id) ?>" title="">Editar entidad</a>
+
+<?php $this->load->view('templates/footer.php'); ?>

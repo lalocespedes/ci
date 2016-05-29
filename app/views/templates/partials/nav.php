@@ -15,9 +15,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Dashboard <span class="sr-only">(current)</span></a></li>
-        <li><a href="<?php echo site_url('upload'); ?>">Cargar</a></li>
+        <li><a href="<?php echo site_url('upload'); ?>">Cargar XML</a></li>
         <li><a href="<?php echo site_url('store'); ?>">Documentos</a></li>
         <li><a href="<?php echo site_url('entity'); ?>">Datos fiscales</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<?php echo site_url('logout'); ?>">Salir</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

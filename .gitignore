@@ -1,2 +1,5 @@
 /vendor/
 /xml/
+/bower_components/
+/node_modules/
+/frontend/

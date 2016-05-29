@@ -16,3 +16,6 @@
 	<h4>No hay empresas registradas</h4>
 
 <?php endif ?>
+
+
+<?php $this->load->view('templates/footer.php'); ?>

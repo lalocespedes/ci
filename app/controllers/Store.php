@@ -12,7 +12,19 @@ class Store extends Admin_Controller {
 
 	public function index()
 	{
-		$xmls = $this->db->get('sdm_xml')->result();
+
+		
+
+		$this->load->library('pagination');
+
+		$config['base_url'] = base_url('store/index/page/');
+		$config['total_rows'] = $this->db->count_all('sdm_xml');
+		$config['per_page'] = 5;
+		$config['num_links'] = 2;
+
+		$this->pagination->initialize($config); 
+
+		$xmls = $this->db->get('sdm_xml', $config['per_page'], $this->uri->segment(4))->result();
 
 		$this->load->view('store/index', [
 			'xmls' => $xmls

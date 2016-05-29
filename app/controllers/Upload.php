@@ -1,4 +1,6 @@
 <?php
+
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Upload extends Admin_Controller {
@@ -18,8 +20,25 @@ class Upload extends Admin_Controller {
 		}
 			try {
 
+				if ($_FILES['userfile']['type'] !== 'text/xml')
+				{
+					$this->session->set_flashdata('fail', 'No es un xml');
+					redirect('upload');
+				}
+
 				$filename = $_FILES['userfile']['name'];
 				$xml = $_FILES['userfile']['tmp_name'];
+
+				libxml_use_internal_errors(TRUE);
+				$dom = new DOMDocument('1.0', 'utf-8');
+				$dom->load($xml);
+				$errors = libxml_get_errors();
+     
+				if($errors){
+
+					$this->session->set_flashdata('fail', 'Xml no valido');
+					redirect('upload');
+				}
 
 				//parsear el xml
 				$parser = new lalocespedes\CfdiMx\Parser($xml);
@@ -30,7 +49,7 @@ class Upload extends Admin_Controller {
 
         		if($result === 'N') {
 					
-					$this->session->set_flashdata('error', 'Error: xml no registrado en el SAT, si el documento tiene menos de 72 hrs favor de intentarlo mas tarde');
+					$this->session->set_flashdata('fail', 'Error: xml no registrado en el SAT, si el documento tiene menos de 72 hrs favor de intentarlo mas tarde');
 					redirect('store');
 
 				}
@@ -41,7 +60,7 @@ class Upload extends Admin_Controller {
 
 				if(!$validate_rfc) {
 					
-					$this->session->set_flashdata('error', 'El documento no corresponde para ningun rfc registrado, el rfc en el xml es '. $cfdi['Comprobante']['Receptor']['@atributos']['rfc']);
+					$this->session->set_flashdata('fail', 'El documento no corresponde para ningun rfc registrado, el rfc en el xml es '. $cfdi['Comprobante']['Receptor']['@atributos']['rfc']);
 					redirect('store');
 
 				}
@@ -63,6 +82,7 @@ class Upload extends Admin_Controller {
 
 				//subir el xml al folder
 				
+				$filename = pathinfo($_FILES['file']['name'], PATHINFO_FILENAME);
 
 				$this->store($filename);
 
@@ -70,11 +90,6 @@ class Upload extends Admin_Controller {
 
 				$this->session->set_flashdata('success', 'Documento guardado.');
 				redirect('store');
-
-	    		//$cfdi = new lalocespedes\CfdiMx\Parser($xml);
-
-				//var_dump($cfdi->jsonSerialize());
-
 		
 			} catch (Exception $e) {
 		
@@ -93,7 +108,7 @@ class Upload extends Admin_Controller {
 
 		if (!$this->upload->do_upload())
 		{
-			$this->session->set_flashdata('error', $this->upload->display_errors());
+			$this->session->set_flashdata('fail', $this->upload->display_errors());
 			redirect('upload');
 		}
 
